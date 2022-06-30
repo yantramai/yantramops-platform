@@ -22,7 +22,7 @@ class executer:
     def core(self):
         # self.invoke_process(self.terraform_init)
         output = {}
-        with open('/Users/jayantkaushal/PycharmProjects/kubernetes-app-engine/app-box/deployments.yaml') as inputDeploymentFile:
+        with open('deployments.yaml') as inputDeploymentFile:
             deployment_file = yaml.load(inputDeploymentFile,Loader=yaml.FullLoader)
             namespace = deployment_file[NAMESPACE]
             deployments = deployment_file[DEPLOYMENTS]
