@@ -6,7 +6,10 @@
       "chart": "kube-prometheus-stack",
       "chart_values": "inputs/helm_chart_values/app/yantram-kube-prometheus-stack.yaml",
       "repository": "https://prometheus-community.github.io/helm-charts",
-      "create_namespace": true
+      "create_namespace": true,
+      "apiVersion": "v2",
+      "kind": "Deployment"
+
     }
   }
 }
