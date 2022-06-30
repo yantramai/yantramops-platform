@@ -1,7 +1,5 @@
 ---
 namespace: yantram
-"apiVersion": "v2",
-"kind": "Deployment"
 deployments:
 - workspace: kube-prometheus-stack
   lifecycle_event: create

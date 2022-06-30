@@ -20,9 +20,9 @@ VAR_FILE_ = '-var-file='
 
 class executer:
     def core(self):
-        self.invoke_process(self.terraform_init)
+        # self.invoke_process(self.terraform_init)
         output = {}
-        with open('deployments.yaml') as inputDeploymentFile:
+        with open('/Users/jayantkaushal/PycharmProjects/kubernetes-app-engine/app-box/deployments.yaml') as inputDeploymentFile:
             deployment_file = yaml.load(inputDeploymentFile,Loader=yaml.FullLoader)
             namespace = deployment_file[NAMESPACE]
             deployments = deployment_file[DEPLOYMENTS]
@@ -106,7 +106,6 @@ class executer:
 
     def invoke_process(self, terraform_processes):
         p = subprocess.Popen(terraform_processes,
-                             # cwd=cwd_m,
                              stdout=subprocess.PIPE)
         while True:
             output = p.stdout.readline().decode()
