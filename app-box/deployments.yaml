@@ -14,7 +14,7 @@ deployments:
   deployment_configurations:
     - deployments/mongo.json
 - workspace: mongo-express
-  lifecycle_event: destroy
+  lifecycle_event: skip
   deployment_configurations:
     - deployments/mongo_express.json
 - workspace: apache
