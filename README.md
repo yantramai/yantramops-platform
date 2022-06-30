@@ -114,7 +114,7 @@ Following are the components of your deployment configurations.
 ### Setup: 
   * Installation :
 ```
-kubectl appy -f [deployment.yaml](https://github.com/yantramcloud/kubernetes-app-engine/blob/master/app-box/components/kubernetes_components/custom/install.sh)  
+kubectl apply -f  deployments.yaml
 ```
 
 ### Run: 
