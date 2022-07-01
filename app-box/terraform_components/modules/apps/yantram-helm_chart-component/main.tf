@@ -1,7 +1,7 @@
 /**
 Base module for deploying helm charts.
 **/
-resource "helm_release" "yantram-helm_release-stack" {
+resource "helm_release" "yantram1-helm_release-stack" {
   for_each = var.helm_chart_list
   name = format("%s-%s",  var.namespace, each.value.name)
   repository = each.value.repository

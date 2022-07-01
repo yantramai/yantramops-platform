@@ -3,7 +3,7 @@
   "chart_configurations": {
     "kube-prometheus-stack": {
       "name": "kube-prometheus-stack",
-      "chart": "kube-prometheus-stack",
+      "chart": "prometheus-community/kube-prometheus-stack",
       "chart_values": "inputs/helm_chart_values/app/yantram-kube-prometheus-stack.yaml",
       "repository": "https://prometheus-community.github.io/helm-charts",
       "create_namespace": true
