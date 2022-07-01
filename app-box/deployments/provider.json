@@ -1,16 +1,6 @@
 {
-  "grafana_configurations": {
-      "grafana_url": "http://localhost:3000",
-      "grafana_auth": "admin:prom-operator"
-  },
   "kubernetes_configurations": {
     "config_context_cluster": "minikube",
     "config_path": "/home/rashmi/.kube/config"
-  },
-    "gcp_configurations": {
-    "gcp_project": "concise-rampart-288609",
-    "gcp_cred_file": "~/Downloads/concise-rampart-288609-a231b189f8c1.json",
-    "gcp_cred_kind": "serviceaccount"
   }
-
 }
