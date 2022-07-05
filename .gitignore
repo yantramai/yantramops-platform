@@ -8,3 +8,5 @@
 
 # Various IDEs
 .idea/
+custom_venv/
+/app-box/.terraform/

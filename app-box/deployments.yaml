@@ -2,7 +2,7 @@
 namespace: yantram
 deployments:
 - workspace: kube-prometheus-stack
-  lifecycle_event: create
+  lifecycle_event: skip
   deployment_configurations:
     - deployments/kube.json
 - workspace: postgresql
@@ -19,6 +19,6 @@ deployments:
     - deployments/mongo_express.json
 - workspace: apache
   provider_configuration: deployments/provider.json
-  lifecycle_event: skip
+  lifecycle_event: create
   deployment_configurations:
     - deployments/apache.json
