@@ -55,7 +55,7 @@ ROOT_URLCONF = 'app_manager.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ["app_engine/templates/"],
+        'DIRS': ["app_manager/templates/"],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
