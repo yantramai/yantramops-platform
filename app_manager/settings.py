@@ -32,6 +32,7 @@ ALLOWED_HOSTS = ['192.168.29.26']
 # Application definition
 
 INSTALLED_APPS = [
+    'deployment.apps.DeploymentConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
