@@ -88,6 +88,7 @@ class executer:
         repo_chart = ['helm', 'repo', 'update']
         bitnami = 'https://charts.bitnami.com/bitnami'
         prometheus_community = 'https://prometheus-community.github.io/helm-charts'
+        grafana_community = 'https://grafana.github.io/helm-charts'
 
         with open('deployments.yaml') as f:
             data = yaml.load(f,Loader=yaml.FullLoader)
@@ -98,6 +99,9 @@ class executer:
                         chart = data['chart_configurations'][deployment_configuration]['chart']
                         if(bitnami == data['chart_configurations'][deployment_configuration]['repository']):
                             terraform_chart = ['helm', 'show', 'values','bitnami/'+chart, '--namespace', 'yantram']
+                            executer().download_chart(terraform_chart,"inputs/defaults_chart_values/yantram-"+chart+'.yaml')
+                        if(grafana_community == data['chart_configurations'][deployment_configuration]['repository']):
+                            terraform_chart = ['helm', 'show', 'values','grafana/'+chart, '--namespace', 'yantram']
                             executer().download_chart(terraform_chart,"inputs/defaults_chart_values/yantram-"+chart+'.yaml')
                         if(prometheus_community == data['chart_configurations'][deployment_configuration]['repository']):
                             terraform_chart = ['helm', 'show', 'values','prometheus-community/'+chart, '--namespace', 'yantram']
@@ -119,7 +123,7 @@ class executer:
         # return data
         return rc
     def download_chart(self, terraform_processes,taregt_file):
-        print("Downloading chart \t" + terraform_processes)
+        # print("Downloading chart \t" + terraform_processes)
         print("taregt_filet \t" + taregt_file)
         p = subprocess.Popen(terraform_processes,
                              # cwd=cwd_m,
@@ -161,7 +165,7 @@ def main():
         # executer.download_charts(self)
         # executer.core(self="namespace")
     except Exception as e:
-        print(e.__str__())
+        print(e)
 
 
 if __name__ == '__main__':
