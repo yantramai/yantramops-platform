@@ -1,4 +1,5 @@
 kubectl port-forward services/yantram-kube-prometheus-st-prometheus 9090 --namespace=yantram
+kubectl port-forward services/yantram-loki-stack  3100 --namespace=yantram
 kubectl port-forward services/yantram-kube-prometheus-stack-grafana 3000:80 --namespace=yantram
 kubectl port-forward services/prometheus-postgres-exporter 9187:80 --namespace=yantram
 kubectl port-forward services/yantram-postgresql 5432:80 --namespace=default

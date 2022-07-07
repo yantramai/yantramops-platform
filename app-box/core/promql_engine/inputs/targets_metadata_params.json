@@ -1,0 +1,4 @@
+{
+        "match_target": "{job=\"prometheus\"}",
+        "match_target": "{instance=\"127.0.0.1:9090\"}"
+    }

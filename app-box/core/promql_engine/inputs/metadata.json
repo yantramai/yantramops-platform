@@ -1,0 +1,3 @@
+{
+  "metric": "promhttp_metric_handler_requests_total"
+}
