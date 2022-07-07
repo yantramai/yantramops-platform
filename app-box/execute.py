@@ -96,7 +96,6 @@ class executer:
                     data = json.load(f);
                     for deployment_configuration in data['chart_configurations']:
                         chart = data['chart_configurations'][deployment_configuration]['chart']
-                        print("Downloading chart \t"+chart)
                         if(bitnami == data['chart_configurations'][deployment_configuration]['repository']):
                             terraform_chart = ['helm', 'show', 'values','bitnami/'+chart, '--namespace', 'yantram']
                             executer().download_chart(terraform_chart,"inputs/defaults_chart_values/yantram-"+chart+'.yaml')
@@ -120,6 +119,8 @@ class executer:
         # return data
         return rc
     def download_chart(self, terraform_processes,taregt_file):
+        print("Downloading chart \t" + terraform_processes)
+        print("taregt_filet \t" + taregt_file)
         p = subprocess.Popen(terraform_processes,
                              # cwd=cwd_m,
                              stdout=subprocess.PIPE)
@@ -141,7 +142,7 @@ class executer:
         self.terraform_plan = ["terraform", "plan"]
         self.terraform_apply = ["terraform", "apply","-auto-approve","-lock=false"]
         self.terraform_refresh = ["terraform", "refresh", "-lock=false"]
-        self.terraform_destroy = ["terraform", "destroy", "-auto-approve", "-lock=false"]
+        self.terraform_destroy = ["terraform", "destroy", "-auto-approve", "-lock=false","--force"]
 
         self.terraform_workspace_new = ["terraform", "workspace", "new"]
         self.terraform_workspace_select = ["terraform", "workspace", "select"]
