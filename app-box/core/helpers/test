@@ -1,0 +1,68 @@
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    meta.helm.sh/release-name: yantram-postgresql
+    meta.helm.sh/release-namespace: default
+  creationTimestamp: "2021-02-03T13:49:16Z"
+  labels:
+    app: postgresql
+    app.kubernetes.io/managed-by: Helm
+    chart: postgresql-8.10.14
+    heritage: Helm
+    release: yantram-postgresql
+  managedFields:
+  - apiVersion: v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:metadata:
+        f:annotations:
+          .: {}
+          f:meta.helm.sh/release-name: {}
+          f:meta.helm.sh/release-namespace: {}
+        f:labels:
+          .: {}
+          f:app: {}
+          f:app.kubernetes.io/managed-by: {}
+          f:chart: {}
+          f:heritage: {}
+          f:release: {}
+      f:spec:
+        f:ports:
+          .: {}
+          k:{"port":5432,"protocol":"TCP"}:
+            .: {}
+            f:name: {}
+            f:port: {}
+            f:protocol: {}
+            f:targetPort: {}
+        f:selector:
+          .: {}
+          f:app: {}
+          f:release: {}
+          f:role: {}
+        f:sessionAffinity: {}
+        f:type: {}
+    manager: Go-http-client
+    operation: Update
+    time: "2021-02-05T08:27:15Z"
+  name: yantram-postgresql
+  namespace: default
+  resourceVersion: "82196"
+  selfLink: /api/v1/namespaces/default/services/yantram-postgresql
+  uid: 4108dff0-d074-4b04-9fee-161afbe04bc7
+spec:
+  clusterIP: 10.107.186.148
+  ports:
+  - name: tcp-postgresql
+    port: 5432
+    protocol: TCP
+    targetPort: tcp-postgresql
+  selector:
+    app: postgresql
+    release: yantram-postgresql
+    role: master
+  sessionAffinity: None
+  type: ClusterIP
+status:
+  loadBalancer: {}
