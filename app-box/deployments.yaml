@@ -2,13 +2,13 @@
 namespace: yantram
 deployments:
 - workspace: kube-prometheus-stack
-  lifecycle_event: destroy
+  lifecycle_event: skip
   deployment_configurations:
     - deployments/loki.json
 - workspace: loki-stack
-  lifecycle_event: skip
+  lifecycle_event: create
   deployment_configurations:
-    - deployments/kube.json
+    - deployments/loki.json
 - workspace: postgresql
   lifecycle_event: skip
   deployment_configurations:

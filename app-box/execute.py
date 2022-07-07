@@ -160,8 +160,8 @@ def main():
     try:
         deployment_authentication = '-var-file=inputs/deployment/provider.json'
         p = executer()
-        # p.core()
-        p.download_charts()
+        p.core()
+        # p.download_charts()
         # executer.download_charts(self)
         # executer.core(self="namespace")
     except Exception as e:

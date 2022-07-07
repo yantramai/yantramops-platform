@@ -4,7 +4,7 @@
     "loki-stack": {
       "name": "loki-stack",
       "chart": "loki-stack",
-      "chart_values": "inputs/helm_chart_values/app/yantram-kube-prometheus-stack.yaml",
+      "chart_values": "inputs/helm_chart_values/app/yantram-loki-stack.yaml",
       "repository": "https://grafana.github.io/helm-charts",
       "create_namespace": false
     }
