@@ -6,7 +6,7 @@ deployments:
   deployment_configurations:
     - deployments/loki.json
 - workspace: loki-stack
-  lifecycle_event: create
+  lifecycle_event: skip
   deployment_configurations:
     - deployments/kube.json
 - workspace: postgresql
