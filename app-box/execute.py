@@ -91,8 +91,8 @@ class executer:
 
         with open('deployments.yaml') as f:
             data = yaml.load(f,Loader=yaml.FullLoader)
-            for datum in data:
-                with open(datum['deployment_configurations']) as f:
+            for datum in data['deployments']:
+                with open(datum['deployment_configurations'][0]) as f:
                     data = json.load(f);
                     for deployment_configuration in data['chart_configurations']:
                         chart = data['chart_configurations'][deployment_configuration]['chart']
@@ -159,7 +159,7 @@ def main():
         # executer.download_charts(self)
         # executer.core(self="namespace")
     except Exception as e:
-        print(e)
+        print(e.__str__())
 
 
 if __name__ == '__main__':
