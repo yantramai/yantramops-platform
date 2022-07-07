@@ -2,7 +2,7 @@
 # GNU General Public License v3.0+ (see COPYING or https://www.gnu.org/licenses/gpl-3.0.txt)
 import json
 
-from com.yantram.core.promql_engine.promql_exec import PromqlExec
+from deployment.promql_engine.promql_exec import PromqlExec
 
 
 class postgres_metrices :
