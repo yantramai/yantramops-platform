@@ -2,7 +2,7 @@
 namespace: yantram
 deployments:
 - workspace: kube-prometheus-stack
-  lifecycle_event: create
+  lifecycle_event: destroy
   deployment_configurations:
     - deployments/kube.json
 - workspace: postgresql
