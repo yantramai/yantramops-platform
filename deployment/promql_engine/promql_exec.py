@@ -1,8 +1,9 @@
 # Copyright: (c) 2020, Jayant Kaushal <jayant@yantram.cloud>
 # GNU General Public License v3.0+ (see COPYING or https://www.gnu.org/licenses/gpl-3.0.txt)
-import json
+import json,os
 import requests
-
+cwd = os.path.dirname(os.path.realpath(__file__))
+print(cwd)
 
 def get(url, params):
     try:
@@ -66,17 +67,17 @@ class PromqlExec :
 
 
 def main():
-    with open('inputs/series_params.json') as f:
+    with open(cwd+'/inputs/series_params.json') as f:
         series_params = json.load(f)
-    with open('inputs/targets_params.json') as f:
+    with open(cwd+'/inputs/targets_params.json') as f:
         targets_params = json.load(f)
-    with open('inputs/label_params.json') as f:
+    with open(cwd+'/inputs/label_params.json') as f:
         labels_params = json.load(f)
-    with open('inputs/rules_param.json') as f:
+    with open(cwd+'/inputs/rules_param.json') as f:
         rules_param = json.load(f)
-    with open('inputs/targets_metadata_params.json') as f:
+    with open(cwd+'/inputs/targets_metadata_params.json') as f:
         targets_metadata_params = json.load(f)
-    with open('inputs/metadata.json') as f:
+    with open(cwd+'/inputs/metadata.json') as f:
         metadata_params = json.load(f)
 
     labels_name = "job"
@@ -91,8 +92,8 @@ def main():
         # print(song)
         # print(song)
         print(song['value'])
-    range_data = range_queries()
-    print(range_data)
+    #range_data = range_queries()
+    #print(range_data)
 
     # range_result = range_data['data']['result']
     # print(range_result)
@@ -127,8 +128,8 @@ def main():
     # print("#########################################################")
     # print("fetch targets_metadata with targets_metadata_params \n"+json.dumps(targets_metadata_params))
     # PromqlExec().targets_metadata(targets_metadata_params)
-    trext = PromqlExec().tsdb({})
-    trext = PromqlExec().metadata(metadata_params)
+    # trext = PromqlExec().tsdb({})
+    # trext = PromqlExec().metadata(metadata_params)
     # print("#########################################################\n\n")
     # print("#########################################################")
 

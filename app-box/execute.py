@@ -146,12 +146,12 @@ class executer:
         self.terraform_plan = ["terraform", "plan"]
         self.terraform_apply = ["terraform", "apply","-auto-approve","-lock=false"]
         self.terraform_refresh = ["terraform", "refresh", "-lock=false"]
-        self.terraform_destroy = ["terraform", "destroy", "-auto-approve", "-lock=false","--force"]
+        self.terraform_destroy = ["terraform", "destroy", "-auto-approve", "-lock=false"]
 
         self.terraform_workspace_new = ["terraform", "workspace", "new"]
         self.terraform_workspace_select = ["terraform", "workspace", "select"]
         self.terraform_workspace_select_default = ["terraform", "workspace", "select", "default"]
-        self.terraform_workspace_delete = ["terraform", "workspace","delete"]
+        self.terraform_workspace_delete = ["terraform", "workspace","delete","--force"]
         self.deployment_configuration = ["terraform", "workspace","delete"]
 
 
