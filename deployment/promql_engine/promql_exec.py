@@ -57,7 +57,7 @@ class PromqlExec :
         return get(url,rule_params)
 
     def __init__(self):
-        with open('inputs/base.json') as f:
+        with open(cwd+'/inputs/base.json') as f:
             series_params = json.load(f)
         module = {}
         base_url = series_params['base_url']
@@ -135,7 +135,7 @@ def main():
 
 
 def range_queries():
-    with open('inputs/range_query_params.json') as f:
+    with open(cwd+'/inputs/range_query_params.json') as f:
         range_query_params = json.load(f)
     print("#########################################################\n\n")
     print("fetch instant_queries with instant_query_params \n" + json.dumps(range_query_params))
@@ -154,7 +154,7 @@ def target(targets_params):
 
 
 def instanceQuery():
-    with open('inputs/instant_query_params.json') as f:
+    with open(cwd+'/inputs/instant_query_params_1.json') as f:
         instant_query_params = json.load(f)
     # print("#########################################################")
     # print("fetch instant_queries with instant_query_params \n" + json.dumps(instant_query_params))
