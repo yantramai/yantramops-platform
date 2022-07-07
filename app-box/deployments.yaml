@@ -2,9 +2,9 @@
 namespace: yantram
 deployments:
 - workspace: kube-prometheus-stack
-  lifecycle_event: skip
+  lifecycle_event: create
   deployment_configurations:
-    - deployments/loki.json
+    - deployments/kube.json
 - workspace: loki-stack
   lifecycle_event: create
   deployment_configurations:
