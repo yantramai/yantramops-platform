@@ -89,10 +89,10 @@ class executer:
         bitnami = 'https://charts.bitnami.com/bitnami'
         prometheus_community = 'https://prometheus-community.github.io/helm-charts'
 
-        with open('../deployments.yaml') as f:
-            data = yaml.load(f)
+        with open('deployments.yaml') as f:
+            data = yaml.load(f,Loader=yaml.FullLoader)
             for datum in data:
-                with open(datum['deployment_configuration']) as f:
+                with open(datum['deployment_configurations']) as f:
                     data = json.load(f);
                     for deployment_configuration in data['chart_configurations']:
                         chart = data['chart_configurations'][deployment_configuration]['chart']
@@ -155,11 +155,11 @@ def main():
     try:
         deployment_authentication = '-var-file=inputs/deployment/provider.json'
         p = executer()
-        p.core()
+        p.download_charts()
         # executer.download_charts(self)
         # executer.core(self="namespace")
     except Exception as e:
-        os.system("Error in execution" + e)
+        print(e)
 
 
 if __name__ == '__main__':

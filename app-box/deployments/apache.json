@@ -6,7 +6,7 @@
       "chart": "apache",
       "chart_values": "inputs/helm_chart_values/app/yantram-apache.yaml",
       "repository": "https://charts.bitnami.com/bitnami",
-      "create_namespace": false
+      "create_namespace": true
     }
   }
 }
