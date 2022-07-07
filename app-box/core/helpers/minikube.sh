@@ -38,3 +38,11 @@ sh terraform.sh postgres
 # NAMESPACE="default" /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/grafana/agent/v0.12.0/production/kubernetes/install.sh)" | kubectl apply -f -
 # NAMESPACE="default" /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/grafana/agent/v0.12.0/production/kubernetes/install-loki.sh)" | kubectl apply -f -
 # NAMESPACE="default" /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/grafana/agent/v0.12.0/production/kubernetes/install-tempo.sh)" | kubectl apply -f -
+
+
+kubectl delete crd -n core alertmanagers.monitoring.coreos.com --namespace=yantram
+kubectl delete crd -n core podmonitors.monitoring.coreos.com --namespace=yantram
+kubectl delete crd -n core prometheuses.monitoring.coreos.com --namespace=yantram
+kubectl delete crd -n core prometheusrules.monitoring.coreos.com --namespace=yantram
+kubectl delete crd -n core servicemonitors.monitoring.coreos.com --namespace=yantram
+kubectl delete crd -n core thanosrulers.monitoring.coreos.com --namespace=yantram

@@ -3,7 +3,6 @@
 import json,os
 import requests
 cwd = os.path.dirname(os.path.realpath(__file__))
-print(cwd)
 
 def get(url, params):
     try:
@@ -88,10 +87,12 @@ def main():
 
     print(result)
     for song in result:
+        print("****************************metric:****************************")
         print(song['metric'])
-        # print(song)
-        # print(song)
+        print("****************************metric:****************************")
+        print("****************************value****************************")
         print(song['value'])
+        print("****************************value****************************")
     #range_data = range_queries()
     #print(range_data)
 
