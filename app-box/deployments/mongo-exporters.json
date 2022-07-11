@@ -1,0 +1,14 @@
+{
+  "namespace": "yantram",
+  "chart_configurations": {
+    "yantram-prometheus-mongodb-exporter": {
+      "name": "prometheus-mongodb-exporter",
+      "chart": "prometheus-mongodb-exporter",
+      "chart_values": "inputs/helm_chart_values/exporters/yantram-prometheus-mongodb-exporter.yaml",
+      "repository": "https://prometheus-community.github.io/helm-charts",
+      "create_namespace": false
+    }
+  },
+  "grafana_data_sources": {},
+  "grafana_dashboards": {}
+}

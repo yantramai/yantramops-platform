@@ -6,6 +6,7 @@
 * Lets you run and manage a set of applications in a kubernetes namesapce as virtual containers. 
 
 
+### Adding a new chart. 
 ### An example deployment for prometheus. 
 lets just directly look at one deployment which as an app component developer is all what you will need.
   * workspace: a virtual container with its own lifecycle.

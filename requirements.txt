@@ -5,3 +5,4 @@ requests~=2.25.1
 setuptools~=54.0.0
 pyyaml >= 5.4.1
 Django
+pandas

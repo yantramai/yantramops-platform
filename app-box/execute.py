@@ -47,8 +47,6 @@ class executer:
                 terraform_workspace_select = self.terraform_workspace_select + [workspace]
 
                 try:
-                    print(lifecycle_event)
-
                     if (lifecycle_event == 'skip'):
                         print("Skipping execution for deployment in workspace "+workspace )
                         continue
@@ -82,10 +80,6 @@ class executer:
                     return e
         return output
     def download_charts(self):
-        print("Downloading chart values for the users to configure...")
-        repo_chart = ['helm', 'repo', 'update', '--namespace yantram']
-        repo_ls = ['helm', 'ls', '--namespace', 'yantram']
-        repo_chart = ['helm', 'repo', 'update']
         bitnami = 'https://charts.bitnami.com/bitnami'
         prometheus_community = 'https://prometheus-community.github.io/helm-charts'
         grafana_community = 'https://grafana.github.io/helm-charts'
@@ -93,8 +87,10 @@ class executer:
         with open('deployments.yaml') as f:
             data = yaml.load(f,Loader=yaml.FullLoader)
             for datum in data['deployments']:
-                with open(datum['deployment_configurations'][0]) as f:
-                    data = json.load(f);
+                configurations_ = datum['deployment_configurations']
+                for configurations_key in configurations_:
+                  with open(configurations_key) as f:
+                    data = json.load(f)
                     for deployment_configuration in data['chart_configurations']:
                         chart = data['chart_configurations'][deployment_configuration]['chart']
                         if(bitnami == data['chart_configurations'][deployment_configuration]['repository']):
@@ -124,7 +120,7 @@ class executer:
         return rc
     def download_chart(self, terraform_processes,taregt_file):
         # print("Downloading chart \t" + terraform_processes)
-        print("taregt_filet \t" + taregt_file)
+        print("Downloaded chart file : \t" + taregt_file)
         p = subprocess.Popen(terraform_processes,
                              # cwd=cwd_m,
                              stdout=subprocess.PIPE)
@@ -151,7 +147,7 @@ class executer:
         self.terraform_workspace_new = ["terraform", "workspace", "new"]
         self.terraform_workspace_select = ["terraform", "workspace", "select"]
         self.terraform_workspace_select_default = ["terraform", "workspace", "select", "default"]
-        self.terraform_workspace_delete = ["terraform", "workspace","delete","--force"]
+        self.terraform_workspace_delete = ["terraform", "workspace","delete"]
         self.deployment_configuration = ["terraform", "workspace","delete"]
 
 

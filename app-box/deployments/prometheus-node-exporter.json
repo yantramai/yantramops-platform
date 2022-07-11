@@ -1,0 +1,19 @@
+{
+  "namespace": "yantram",
+  "chart_configurations": {
+    "prometheus-node-exporter": {
+      "name": "prometheus-node-exporter",
+      "chart": "prometheus-node-exporter",
+      "chart_values": "inputs/helm_chart_values/app/yantram-prometheus-node-exporter.yaml",
+            "repository": "https://prometheus-community.github.io/helm-charts",
+      "create_namespace": false
+    }
+  }
+}
+
+
+
+
+
+
+
