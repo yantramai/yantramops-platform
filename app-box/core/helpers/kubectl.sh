@@ -25,13 +25,22 @@ echo $1
 # #   --cluster=default \
 # #   --user=default
 # #
-kubectl get namespace
+echo '#####################################################################################'
+echo '#####################################################################################'
+echo 'Listing all HELM Deployments'
+helm list --namespace $1
+echo '\n\n'
+ helm delete yantram-apache --namespace $1
+# helm delete yantram-mongo-express --namespace $1
 
-echo '#####################################################################################'
+
+echo 'Listing kubectl namespace'
+kubectl get namespace
+echo '\n\n'
+
 echo 'Listing all the Nodes'
-echo '#####################################################################################'
 kubectl get nodes --namespace=$1
-echo '#####################################################################################'
+echo '\n\n'
 
 #get pods
 #echo '\n'
@@ -44,64 +53,47 @@ echo '##########################################################################
 #minikube start
 #get pods
 echo 'services'
-echo '#####################################################################################'
 kubectl get services --namespace=$1
-echo '#####################################################################################'
+echo '\n\n'
 echo 'servicemonitor'
 kubectl get servicemonitor --namespace=$1
-echo '#####################################################################################'
+echo '\n\n'
 echo 'pods'
-echo '#####################################################################################'
 kubectl get pods --namespace=$1
-echo '#####################################################################################'
+echo '\n\n'
 echo 'deployments'
-echo '#####################################################################################'
 kubectl get deployment --namespace=$1
-echo '#####################################################################################'
+echo '\n\n'
 echo ' replicaset' --namespace=$1
-echo '#####################################################################################'
 kubectl get replicaset --namespace=$1
-echo '#####################################################################################'
+echo '\n\n'
 echo 'statefulset'
-echo '#####################################################################################'
 kubectl get statefulset --namespace=$1
-echo '#####################################################################################'
+echo '\n\n'
 echo 'configmap'
-echo '#####################################################################################'
 kubectl get configmap --namespace=$1
-echo '#####################################################################################'
+echo '\n\n'
 echo 'secret'
-echo '#####################################################################################'
 kubectl get secret --namespace=$1
-#echo 'Edit a deployment : #kubectl edit DEPLOYMENT_NAME\n'
-##kubectl edit deployment mysql-1600416151
-#echo 'installed_helm_charts'
-echo '#####################################################################################'
+echo '\n\n'
 echo 'endpoints'
-echo '#####################################################################################'
-
 kubectl get endpoints --namespace=$1
-echo '#####################################################################################'
+echo '\n\n'
 echo 'crd'
-echo '#####################################################################################'
 kubectl get crd --namespace=$1
-echo '#####################################################################################'
-echo 'alertmanager'
-echo '#####################################################################################'
-kubectl get alertmanager --namespace=$1
-echo '#####################################################################################'
+echo '\n\n'
+echo 'servicemonitor'
+kubectl get servicemonitor --namespace=$1
+echo '\n\n'
 echo 'prometheus'
-echo '#####################################################################################'
 kubectl get prometheus --namespace=$1
-echo '#####################################################################################'
+echo '\n\n'
 echo 'prometheusrules'
-echo '#####################################################################################'
 kubectl get prometheusrules --namespace=$1
-echo '#####################################################################################'
+echo '\n\n'
 echo 'alertmanagerconfigs'
-echo '#####################################################################################'
 kubectl get alertmanagerconfigs --namespace=$1
-echo '#####################################################################################'
+echo '\n\n'
 
 
 #helm ls
@@ -152,5 +144,9 @@ echo '##########################################################################
 
 # kubectl config --kubeconfig=civo-yantram-k8-kubeconfig view
 # kubectl config --kubeconfig=civo-yantram-k8-kubeconfig use-context default
+
+# kubectl logs yantram-apache-568567b6c6-dvdn6 --namespace=$1
+# kubectl get servicemonitor prometheus-mongodb-exporter -o yaml --namespace=$1 > ../sample/service/mongo/prometheus-mongodb-exporter-service-monitor.yml
+# kubectl get servicemonitor yantram-kube-prometheus-st-prometheus -o yaml --namespace=$1
 
 

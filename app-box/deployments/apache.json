@@ -1,8 +1,8 @@
 {
-  "namespace": "yantram",
+  "namespace": "yantramapplication",
   "chart_configurations": {
     "yantram-apache":{
-      "name": "apache1",
+      "name": "apache",
       "chart": "apache",
       "chart_values": "inputs/helm_chart_values/app/yantram-apache.yaml",
       "repository": "https://charts.bitnami.com/bitnami",

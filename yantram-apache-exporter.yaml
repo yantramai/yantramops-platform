@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: apache-exporter
+  namespace: yantram
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      bb: web
+  template:
+    metadata:
+      labels:
+        bb: web
+    spec:
+      containers:
+      - name: apache-exporter
+        image: docker.io/bitnami/apache-exporter:0
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: yantram-apache-exporter
+  namespace: yantram
+spec:
+  type: NodePort
+  selector:
+    bb: web
+  ports:
+  - port: 9117
+    targetPort: 9117
+    nodePort:  30045

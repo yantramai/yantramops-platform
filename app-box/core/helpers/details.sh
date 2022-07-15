@@ -13,8 +13,8 @@ kubectl get servicemonitor yantram-kube-prometheus-st-grafana --namespace=$1 -o 
 kubectl get servicemonitor yantram-prometheus-postgres-exporter --namespace=yantram -o yaml > ../sample/base/yantram-prometheus-postgres-exporter-service-monitor.yml
 kubectl get servicemonitor prometheus-mongodb-exporter -o yaml > ../sample/service/mongo/prometheus-mongodb-exporter-service-monitor.yml
 
+# kubectl logs mysql-1600416151-689d49c5fb-wzh4h --namespace=$1
 
-# kubectl logs mysql-1600416151-689d49c5fb-wzh4h
 
 # kubectl get configmap prometheus-postgres-exporter -o yaml > ../sample/configmap/prometheus-postgres-exporter.yml
 # kubectl get configmap yantram-prometheus-grafana -o yaml > ../sample/configmap/yantram-prometheus-grafana.yml

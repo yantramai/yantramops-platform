@@ -1,0 +1,6 @@
+{
+        "query": "sum({__name__=~\".+\"}) by (__name__,instance)",
+        "start": "1502809554",
+        "end": "1502809554",
+        "step": "1"
+        }

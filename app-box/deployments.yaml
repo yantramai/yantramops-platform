@@ -14,15 +14,19 @@ deployments:
   deployment_configurations:
     - deployments/postgresql.json
 - workspace: mongodb
-  lifecycle_event: create
+  lifecycle_event: skip
   deployment_configurations:
     - deployments/mongo.json
+- workspace: prometheus-mongodb-exporter
+  lifecycle_event: skip
+  deployment_configurations:
+    - deployments/prometheus-mongodb-exporter.json
 - workspace: mongo-express
   lifecycle_event: skip
   deployment_configurations:
     - deployments/mongo_express.json
 - workspace: apache
-  lifecycle_event: skip
+  lifecycle_event: create
   deployment_configurations:
     - deployments/apache.json
 - workspace: node-exporter
