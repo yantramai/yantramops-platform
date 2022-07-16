@@ -1,6 +1,5 @@
 import json
 import subprocess
-
 import yaml
 
 
@@ -11,7 +10,7 @@ class YantramProcessor:
     NAMESPACE = 'namespace'
     PROVIDER_CONFIGURATION = 'provider_configuration'
     DEPLOYMENT_CONFIGURATIONS = 'deployment_configurations'
-    DEFAULT_PROVIDER_JSON = 'deployments/provider.json'
+    DEFAULT_PROVIDER_JSON = 'deployment_configurations/provider.json'
     VAR_FILE_ = '-var-file='
 
     terraform_init = ["terraform", "init"]

@@ -1,36 +1,36 @@
 # Copyright: (c) 2020, Jayant Kaushal <jayant@yantram.cloud>
 # GNU General Public License v3.0+ (see COPYING or https://www.gnu.org/licenses/gpl-3.0.txt)
-import json
+import json, os
 from abc import ABC
 
 from apps.core.base.promql_executer import PromQLProcessor
 from apps.core.base.promql_executer import PromqlExecuter
+
 cwd = os.path.dirname(os.path.realpath(__file__))
 
 
-
-class PromqlPostgresProcessor(PromQLProcessor, ABC) :
+class PromqlPostgresProcessor(PromQLProcessor, ABC):
 
     def instant_queries(self):
-       # with open('inputs/promethues/instant_query_params_1.json') as f:
-       with open('inputs/promethues/instant_query_params.json') as f:
-           series_params = json.load(f)
-           data = PromqlExecuter().instant_queries(series_params)
-           print(data)
+        # with open('inputs/promethues/instant_query_params_1.json') as f:
+        with open('inputs/promethues/instant_query_params.json') as f:
+            series_params = json.load(f)
+            data = PromqlExecuter().instant_queries(series_params)
+            print(data)
 
     def main(self):
         with open(cwd + '/inputs/series_params.json') as f:
-           series_params = json.load(f)
+            series_params = json.load(f)
         with open(cwd + '/inputs/targets_params.json') as f:
-           targets_params = json.load(f)
+            targets_params = json.load(f)
         with open(cwd + '/inputs/label_params.json') as f:
-           labels_params = json.load(f)
+            labels_params = json.load(f)
         with open(cwd + '/inputs/rules_param.json') as f:
-           rules_param = json.load(f)
+            rules_param = json.load(f)
         with open(cwd + '/inputs/targets_metadata_params.json') as f:
-           targets_metadata_params = json.load(f)
+            targets_metadata_params = json.load(f)
         with open(cwd + '/inputs/metadata.json') as f:
-           metadata_params = json.load(f)
+            metadata_params = json.load(f)
 
         labels_name = "job"
         data = self.module.instanceQuery()
@@ -85,5 +85,3 @@ class PromqlPostgresProcessor(PromQLProcessor, ABC) :
         # trext = PromqlExec().metadata(metadata_params)
         # print("#########################################################\n\n")
         # print("#########################################################")
-
-

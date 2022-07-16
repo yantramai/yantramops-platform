@@ -17,7 +17,7 @@ class MongoDBStatusCodeProcessor(StatusCodeProcessor):
         pass
 
     def process_status_code(self, full_file_path: str) -> dict:
-        datasource = self.load_data_source("path","file")
+        # datasource = self.load_data_source("path","file")
         datasource = 'inputs/promethues/instant_query_params.json'
 
         self.range_queries()

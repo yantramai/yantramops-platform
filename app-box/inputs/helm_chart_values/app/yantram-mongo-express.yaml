@@ -148,13 +148,13 @@ tolerations: []
 affinity: {}
 
 # MongoDB host name or IP address
-mongodbServer:localhost
+mongodbServer: 127.0.0.1
 
 # MongoDB port
 mongodbPort: 27017
 
 # Enable administrator access
-mongodbEnableAdmin: true
+mongodbEnableAdmin: false
 
 # Administrator username
 mongodbAdminUsername: root
@@ -163,7 +163,7 @@ mongodbAdminUsername: root
 mongodbAdminPassword: "12345"
 
 # Database name (only needed if `mongodbEnableAdmin` is `false`)
-mongodbAuthDatabase: "yantram1"
+mongodbAuthDatabase: ""
 
 # Database username (only needed if `mongodbEnableAdmin` is `false`)
 mongodbAuthUsername: ""

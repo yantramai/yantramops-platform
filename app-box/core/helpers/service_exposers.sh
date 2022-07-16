@@ -24,7 +24,7 @@ kubectl port-forward services/prometheus-postgres-exporter 5555:80
 # kubectl port-forward services/yantram-prometheus-prometheus-node-exporter 9100
 kubectl port-forward services/yantram-kube-prometheus-stack-grafana 3000:80 --namespace=yantram
 kubectl port-forward services/yantram-mongodb 27017 --namespace=yantram
-kubectl port-forward services/yantram-mongo-express 8081 --namespace=default
+kubectl port-forward services/yantram-mongo-express 8081 --namespace=yantram
 
 
 prometheus-postgres-exporter

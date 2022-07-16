@@ -1,5 +1,5 @@
 {
-        "query": "go_memstats_alloc_bytes",
+        "query": "go_gc_duration_seconds",
         "end": "1612639080",
         "start": "1609999080",
         "step": "1"

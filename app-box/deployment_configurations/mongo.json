@@ -1,5 +1,4 @@
 {
-  "namespace": "yantram",
   "chart_configurations": {
     "yantram_mongodb": {
       "name": "mongodb",
@@ -10,7 +9,5 @@
 
     }
 
-  },
-  "grafana_data_sources": {},
-  "grafana_dashboards": {}
+  }
 }

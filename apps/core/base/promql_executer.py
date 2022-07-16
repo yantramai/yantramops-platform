@@ -10,8 +10,8 @@ cwd = os.path.dirname(os.path.realpath(__file__))
 
 
 class PromqlExecuter(PromQLProcessor):
-    def __init__(self):
-        self.module = super.__init__()
+    # def __init__(self):
+        # self.module = super.__init__(self)
 
     def instant_queries(self, query_params):
         url = self.module.get('base_url', None) + '/query'

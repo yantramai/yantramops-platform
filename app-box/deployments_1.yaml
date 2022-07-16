@@ -1,35 +1,33 @@
 ---
-namespace: yantram
-deployments:
 - workspace: kube-prometheus-stack
   lifecycle_event: skip
   deployment_configurations:
-    - deployment_configurations/kube.json
+    - deployments/kube.json
 - workspace: loki-stack
   lifecycle_event: skip
   deployment_configurations:
-    - deployment_configurations/loki.json
+    - deployments/loki.json
 - workspace: postgresql
   lifecycle_event: skip
   deployment_configurations:
-    - deployment_configurations/postgresql.json
+    - deployments/postgresql.json
 - workspace: mongodb
-  lifecycle_event: skip
+  lifecycle_event: create
   deployment_configurations:
-    - deployment_configurations/mongo.json
+    - deployments/mongo.json
 - workspace: prometheus-mongodb-exporter
   lifecycle_event: skip
   deployment_configurations:
-    - deployment_configurations/prometheus-mongodb-exporter.json
+    - deployments/prometheus-mongodb-exporter.json
 - workspace: mongo-express
   lifecycle_event: skip
   deployment_configurations:
-    - deployment_configurations/mongo_express.json
+    - deployments/mongo_express.json
 - workspace: apache
   lifecycle_event: skip
   deployment_configurations:
-    - deployment_configurations/apache.json
+    - deployments/apache.json
 - workspace: node-exporter
   lifecycle_event: skip
   deployment_configurations:
-    - deployment_configurations/prometheus-node-exporter.json
+    - deployments/prometheus-node-exporter.json

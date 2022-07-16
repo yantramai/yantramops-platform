@@ -2,13 +2,11 @@
   "namespace": "yantram",
   "chart_configurations": {
     "yantram-mongo-express": {
-      "name": "mongo-express",
+      "name": "mongo-express-demo",
       "chart": "mongo-express",
       "chart_values": "inputs/helm_chart_values/app/yantram-mongo-express.yaml",
       "repository": "https://cowboysysop.github.io/charts",
       "create_namespace": false
     }
-  },
-  "grafana_data_sources": {},
-  "grafana_dashboards": {}
+  }
 }

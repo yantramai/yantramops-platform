@@ -30,8 +30,8 @@ echo '##########################################################################
 echo 'Listing all HELM Deployments'
 helm list --namespace $1
 echo '\n\n'
- helm delete yantram-apache --namespace $1
-# helm delete yantram-mongo-express --namespace $1
+# helm delete yantram-apache --namespace $1
+#helm delete yantram-mongo-express --namespace $1
 
 
 echo 'Listing kubectl namespace'
