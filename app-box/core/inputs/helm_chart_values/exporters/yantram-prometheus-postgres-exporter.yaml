@@ -1,0 +1,56 @@
+# Default values for prometheus-postgres-exporter.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+replicaCount: 1
+
+service:
+  type: ClusterIP
+  port: 80
+  targetPort: 9187
+  name: http
+  labels: {}
+  annotations: {}
+
+serviceMonitor:
+  # When set true then use a ServiceMonitor to configure scraping
+  enabled: true
+  labels:
+    release: yantram-kube-prometheus-stack
+  # Set the namespace the ServiceMonitor should be deployed
+  namespace: yantram
+  # Set how frequently Prometheus should scrape
+  # interval: 30s
+  # Set path to cloudwatch-exporter telemtery-path
+  # telemetryPath: /metrics
+  # Set labels for the ServiceMonitor, use this to define your scrape label for Prometheus Operator
+  # labels:
+  # Set timeout for scrape
+  # timeout: 10s
+  # Set of labels to transfer from the Kubernetes Service onto the target
+  # targetLabels: []
+  # MetricRelabelConfigs to apply to samples before ingestion
+  # metricRelabelings: []
+
+config:
+  datasource:
+    # Specify one of both datasource or datasourceSecret
+    host: yantram-postgresql
+    user: postgres
+    # Only one of password and passwordSecret can be specified
+    password: postgres
+    # Specify passwordSecret if DB password is stored in secret.
+    passwordSecret: {}
+    # Secret name
+    #  name:
+    # Password key inside secret
+    #  key:
+    port: "5432"
+    database: 'postgres'
+    sslmode: disable
+    # Specifies if datasource should be sourced from secret value in format: postgresql://login:password@hostname:port/dbname?sslmode=disable
+    # Multiple Postgres databases can be configured by comma separated postgres connection strings
+    # Secret name
+    #  name:
+    # Connection string key inside secret
+    #  key:

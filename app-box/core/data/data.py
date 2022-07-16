@@ -21,7 +21,7 @@ def get(url, params):
 class PromqlExec :
 
     def instant_queries(self,query_params):
-        planets = sns.load_dataset('planets')
+        # planets = sns.load_dataset('planets')
         url = self.module.get('base_url', None) + '/query'
         return get(url,query_params)
 

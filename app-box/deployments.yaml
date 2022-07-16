@@ -1,8 +1,8 @@
 ---
-namespace: yantram
+namespace: yantram-apps
 deployments:
 - workspace: kube-prometheus-stack
-  lifecycle_event: skip
+  lifecycle_event: create
   deployment_configurations:
     - deployments/kube.json
 - workspace: loki-stack
@@ -26,7 +26,7 @@ deployments:
   deployment_configurations:
     - deployments/mongo_express.json
 - workspace: apache
-  lifecycle_event: create
+  lifecycle_event: skip
   deployment_configurations:
     - deployments/apache.json
 - workspace: node-exporter

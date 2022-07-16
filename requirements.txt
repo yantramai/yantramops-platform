@@ -6,3 +6,11 @@ setuptools~=54.0.0
 pyyaml >= 5.4.1
 Django
 pandas
+pymongo
+dnspython
+virtualenvwrapper
+# python >= 2.7
+flask~=1.1.2
+requests~=2.22.0
+pyyaml >= 5.4.1
+
