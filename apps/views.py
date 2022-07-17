@@ -26,8 +26,8 @@ def project_index(request):
         instant_query_params_1 = json.load(f)
     print("#########################################################\n\n")
     print("fetch instant_queries with instant_query_params \n" + json.dumps(instant_query_params_1))
-    result = PromqlExecuter().instant_queries(instant_query_params_1)
-    print(result)
+    result = PromqlExecuter().instant_queries_mongo(instant_query_params_1)
+    # print(json.dumps(result))
     # df = pandas.read_json(result)
     # for x in deployments.find():
     #     print(x)

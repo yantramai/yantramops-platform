@@ -32,4 +32,4 @@ class MongoDBStatusCodeProcessor(StatusCodeProcessor):
             range_query_params = json.load(f)
         print("#########################################################\n\n")
         print("fetch instant_queries with instant_query_params \n" + json.dumps(range_query_params))
-        return PromqlExecuter().range_queries(range_query_params)
+        return PromqlExecuter().instant_queries_mongo(range_query_params)
