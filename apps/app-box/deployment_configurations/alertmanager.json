@@ -1,0 +1,15 @@
+{
+  "namespace": "yantram",
+  "chart_configurations": {
+    "alertmanager": {
+      "name": "alertmanagerdemo",
+      "chart": "alertmanager",
+      "chart_values": "inputs/helm_chart_values/app/yantram-alertmanager.yaml",
+      "repository": "https://prometheus-community.github.io/helm-charts",
+      "create_namespace": false
+
+    }
+  }
+}
+
+

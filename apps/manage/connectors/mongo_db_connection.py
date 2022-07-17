@@ -19,7 +19,7 @@ class MongoDBConnection(InformalConnectorInterface):
             host=DOMAIN + ":" + str(PORT),
             serverSelectionTimeoutMS=3000,  # 3 second timeout
             username="root",
-            password="12345"
+            password="123456"
         )
         return client
 

@@ -1,5 +1,6 @@
 # Copyright: (c) 2020, Jayant Kaushal <jayant@yantram.cloud>
 # GNU General Public License v3.0+ (see COPYING or https://www.gnu.org/licenses/gpl-3.0.txt)
+import json
 import os
 import pandas as pd
 
@@ -11,23 +12,21 @@ cwd = os.path.dirname(os.path.realpath(__file__))
 
 
 class PromqlExecuter(PromQLProcessor):
-    # def __init__(self):
+    def __init__(self,url):
         # self.module = super.__init__(self)
+        self.url = "http://localhost:9090/api/v1/query"
 
     def instant_queries(self, query_params):
-        url = self.module.get('base_url', None) + '/query'
-        print('urlurlurlurlurlurlurlurlurlurlurlurlurlurlurlurlurlurlurlurlurlurlurl')
-        print(url)
-        print('urlurlurlurlurlurlurlurlurlurlurlurlurlurlurlurlurlurlurlurlurlurlurl')
-        return RESTProcessor.get(url, query_params)
+        return RESTProcessor.get(self.url, query_params)
 
     def instant_queries_mongo(self,query_params):
-        url = "http://localhost:9090/api/v1/query"
-        dict = RESTProcessor.get(url, query_params)
+        results = RESTProcessor.get(self.url, query_params)
+        print("fetch instant_queries with instant_query_params \n" + json.dumps(results))
+
         # print(dict['data']['result'].keys())
-        df2 = pd.DataFrame.from_dict(dict['data']['result'])
-        print(df2[['metric']].head())
-        return dict
+        df2 = pd.DataFrame.from_dict(results['data']['result'])
+        print(df2.head())
+        return df2
 
     def range_queries(self, query_ranger_params):
         url = self.module.get('base_url', None) + '/query_range'

@@ -33,3 +33,7 @@ deployments:
   lifecycle_event: skip
   deployment_configurations:
     - deployment_configurations/prometheus-node-exporter.json
+- workspace: alertmanager
+  lifecycle_event: create
+  deployment_configurations:
+    - deployment_configurations/alertmanager.json
