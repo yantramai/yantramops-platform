@@ -12,4 +12,3 @@ custom_venv/
 /app-box/.terraform/
 /app-box/terraform.tfstate.d/
 /apps/app-box/.terraform/environment
-/apps/app-box/.terraform/

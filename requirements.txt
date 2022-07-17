@@ -9,3 +9,4 @@ pandas
 pymongo
 dnspython
 virtualenvwrapper
+openpyxl

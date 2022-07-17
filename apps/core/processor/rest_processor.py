@@ -5,11 +5,11 @@ cwd = os.path.dirname(os.path.realpath(__file__))
 
 class RESTProcessor():
     def get(url, params):
+        headers = {}
+        payload = {}
         try:
-            x = requests.get(
-                url=url,
-                params=params)
-            return x.json()
+            response = requests.request("GET", url,params=params, headers=headers, data=payload)
+            return response.json()
 
         except Exception as e:
             raise Exception(format(e))

@@ -169,26 +169,11 @@ class Utils:
             sys.exit(1)
         return self.df
 
-    def get_config_data(self, data):
-        software_scanning_file = data['software_scanning_file']
-        file_name = data['file_name']
-        encodings = data['encoding']
-        drive_path_input = data['drive_path_input']
-        drive_path_output = data['drive_path_output']
-        excel_sheet_name = data['excel_sheet_name']
-        identifier = data['columns_to_process']['identifier']
-        title = data['columns_to_process']['title']
-        description = data['columns_to_process']['description']
-        write_me = data['write_to_excel']
-        display_columns = data['display_columns']
-        self.encoding = encodings
-        return title, description, identifier, drive_path_input, drive_path_output, excel_sheet_name, file_name, write_me, software_scanning_file, display_columns
-
     def get_random_id(self):
         return 'vz'.join(random.choices(string.ascii_letters + string.digits, k=20))
 
     def get_data(self, path):
-        return os.path.join(_ROOT, 'data', path)
+        return os.path.join(_ROOT, '../../app-box/core/data', path)
 
     def print_columns_in_datasource(self, datasource):
         columns = datasource.columns.unique()

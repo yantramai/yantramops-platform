@@ -3,10 +3,11 @@ import json
 import os
 import yaml
 from django.http import HttpResponse
-
+import pandas as pd
 from django.shortcuts import render
 
 from apps.core.base.promql_executer import PromqlExecuter
+from apps.core.base.utils import Utils as panda_utils
 from apps.manage.connectors.mongo_db_connection import MongoDBConnection
 from apps.manage.status_code.mongodb.mongodb_status_code_processor import MongoDBStatusCodeProcessor
 
@@ -16,14 +17,7 @@ cwd = os.path.dirname(os.path.realpath(__file__))
 def project_index(request):
     auth = {}
     index =0
-
-    while (index < 2000):
-        print("fetching client...")
-        client = MongoDBConnection().connect(auth)
-        # client = MongoDBConnection().connect(auth)
-        print(client)
-        print(index)
-        index = index + 1
+    client = MongoDBConnection().connect(auth)
     mydb = client["yantram1"]
     go_gc_duration_seconds_query = {}
     # go_gc_duration_seconds_query['query'] = 'go_gc_duration_seconds'
@@ -34,13 +28,21 @@ def project_index(request):
     go_gc_duration_seconds_query['query'] = 'promhttp_metric_handler_requests_total{code="503"}'
     go_gc_duration_seconds_query['query'] = 'promhttp_metric_handler_requests_total{code!~"2..",container="alertmanager"}'
     go_gc_duration_seconds_query['query'] = 'promhttp_metric_handler_requests_total{code!~"2..",container="alertmanager"}[5m]'
-    go_gc_duration_seconds_query['query'] = 'rate(promhttp_metric_handler_requests_total{code!~"2.."}[5m])[30m:1m]'
     go_gc_duration_seconds_query['query'] = 'mongodb_exporter_scrapes_total'
     go_gc_duration_seconds_query['query'] = 'mongodb_exporter_build_info'
+    go_gc_duration_seconds_query['query'] = 'rate(promhttp_metric_handler_requests_total{code!~"2.."}[5m])[30m:1m]'
     print("#########################################################\n\n")
     print("fetch instant_queries with instant_query_params \n" + json.dumps(go_gc_duration_seconds_query))
     # result = PromqlExecuter().instant_queries_mongo(instant_query_params_1)
-    result = PromqlExecuter("http://localhost:9090/api/v1/query").instant_queries_mongo(go_gc_duration_seconds_query)
+    results = PromqlExecuter("http://localhost:9090/api/v1/query").instant_queries_mongo(go_gc_duration_seconds_query)
+    df2 = pd.DataFrame.from_dict(results['data']['result'])
+    # print(df2['metric'])
+    df3 = pd.DataFrame.from_dict(df2['metric'])
+    df4 = df3['metric']
+    df5 = pd.DataFrame.from_dict(df4)
+    print(df5['metric'])
+
+    # return df2
 
     # print(json.dumps(result))
     # df = pandas.read_json(result)
@@ -48,7 +50,7 @@ def project_index(request):
     #     print(x)
 
     # projects = Project.objects.all()
-    return HttpResponse(result)
+    return HttpResponse(results)
     # context = {"projects": []}
     # return render(request, "project_index.html", context)
 
@@ -56,7 +58,7 @@ def project_index(request):
 def process_mongo_db_prom_ql(request):
     auth = {}
     index =0
-    while(index <2000):
+    while(False):
       print("fetching client...")
       client = MongoDBConnection().connect(auth)
       print(client)

@@ -2,7 +2,6 @@
 # GNU General Public License v3.0+ (see COPYING or https://www.gnu.org/licenses/gpl-3.0.txt)
 import json
 import os
-import pandas as pd
 
 from apps.core.processor.rest_processor import RESTProcessor
 
@@ -21,13 +20,7 @@ class PromqlExecuter(PromQLProcessor):
 
     def instant_queries_mongo(self,query_params):
         results = RESTProcessor.get(self.url, query_params)
-        print("fetch instant_queries with instant_query_params \n" + json.dumps(results))
-
-        # print(dict['data']['result'].keys())
-        df2 = pd.DataFrame.from_dict(results['data']['result'])
-        print(df2.head())
-        return df2
-
+        return results
     def range_queries(self, query_ranger_params):
         url = self.module.get('base_url', None) + '/query_range'
         return RESTProcessor.get(url, query_ranger_params)

@@ -9,13 +9,15 @@ import pathlib
 
 import numpy as np
 
-from utils.ticket_analysis import ticket_utils as tu
 
 import pandas as pd
 
+from apps.core.base.utils import Utils
+
+
 class TicketAnalysis:
     def __init__(self, source_file):
-        self.ticket_utils = tu.Utils(source_file)
+        self.ticket_utils = Utils(source_file)
         self.source_file = source_file
 
     def preprocess_snow_data(self):
