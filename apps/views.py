@@ -116,9 +116,7 @@ def persist_deployment_configurations(client):
         # print(deployment_file['chart_configurations'])
         # terraform_configuration = mongo_file['deployment_configurations']['yantram-mongodb']
         # print(terraform_configuration)
-        with open(
-                '/home/rashmi/repo/kubernetes-app-engine/app-box/inputs/helm_chart_values/app/yantram-mongodb.yaml') as inputDeploymentFile:
-            # with open('/home/rashmi/repo/kubernetes-app-engine/app-box/inputs/helm_chart_values/app/yantram-apache.yaml') as inputDeploymentFile:
+        with open('/home/rashmi/repo/kubernetes-app-engine/apps/app-box/inputs/helm_chart_values/app/yantram-mongodb.yaml') as inputDeploymentFile:
             mongo_helm_chart_values = yaml.load(inputDeploymentFile, Loader=yaml.FullLoader)
             print("*************************************************************")
             print("deployment")
