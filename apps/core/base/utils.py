@@ -173,7 +173,7 @@ class Utils:
         return 'vz'.join(random.choices(string.ascii_letters + string.digits, k=20))
 
     def get_data(self, path):
-        return os.path.join(_ROOT, '../../app-box/core/data', path)
+        return os.path.join(_ROOT, '../processor/data', path)
 
     def print_columns_in_datasource(self, datasource):
         columns = datasource.columns.unique()

@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
     'apps',
 ]
 
@@ -49,6 +50,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware'
 ]
 
 ROOT_URLCONF = 'app_manager.urls'
@@ -81,12 +83,20 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+# import mongoengine
+#
 # DATABASES = {
 #        'default': {
 #            'ENGINE': 'djongo',
-#            'NAME': 'db-name',
+#            'NAME': 'yantram1',
 #        }
 #    }
+#
+#
+# DOMAIN = 'localhost'
+# PORT = 27017
+# # create an instance of MongoClient()
+# mongoengine.connect(db="yantram1", host=DOMAIN + ":" + str(PORT), username="root", password="12345")
 
 
 # Password validation
@@ -129,3 +139,7 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+CORS_ORIGIN_WHITELIST = (
+    'http://localhost:3000',
+)

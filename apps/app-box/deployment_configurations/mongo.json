@@ -6,8 +6,6 @@
       "chart_values": "inputs/helm_chart_values/app/yantram-mongodb.yaml",
       "repository": "https://charts.bitnami.com/bitnami",
       "create_namespace": false
-
     }
-
   }
 }

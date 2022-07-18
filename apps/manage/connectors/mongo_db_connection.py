@@ -10,22 +10,18 @@ class MongoDBConnection(InformalConnectorInterface):
         pass
 
     def get_db_handle(self, host, port, username, password, db_name):
-        # host variables for MongoDB
-        DOMAIN = 'localhost'
-        PORT = 27017
-
         # create an instance of MongoClient()
         client = MongoClient(
-            host=DOMAIN + ":" + str(PORT),
+            host=host + ":" + str(port),
             serverSelectionTimeoutMS=3000,  # 3 second timeout
-            username="root",
-            password="123456"
+            username=username,
+            password=password
         )
         return client
 
     def connect(self, auth: dict) -> object:
-        client = self.get_db_handle(host="host", port=123, username="username", password="password",
-                                                db_name="db_name")
+        client = self.get_db_handle(host="localhost", port=27017, username="root", password="12345",
+                                                   db_name="yantram1")
         return client
 
 # def connect(self, auth: dict) -> object:
