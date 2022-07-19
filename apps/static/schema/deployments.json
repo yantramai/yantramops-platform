@@ -1,0 +1,234 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "namespace": {
+      "type": "string"
+    },
+    "deployments": {
+      "type": "array",
+      "items": [
+        {
+          "type": "object",
+          "properties": {
+            "workspace": {
+              "type": "string"
+            },
+            "lifecycle_event": {
+              "type": "string"
+            },
+            "deployment_configurations": {
+              "type": "array",
+              "items": [
+                {
+                  "type": "string"
+                }
+              ]
+            }
+          },
+          "required": [
+            "workspace",
+            "lifecycle_event",
+            "deployment_configurations"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "workspace": {
+              "type": "string"
+            },
+            "lifecycle_event": {
+              "type": "string"
+            },
+            "deployment_configurations": {
+              "type": "array",
+              "items": [
+                {
+                  "type": "string"
+                }
+              ]
+            }
+          },
+          "required": [
+            "workspace",
+            "lifecycle_event",
+            "deployment_configurations"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "workspace": {
+              "type": "string"
+            },
+            "lifecycle_event": {
+              "type": "string"
+            },
+            "deployment_configurations": {
+              "type": "array",
+              "items": [
+                {
+                  "type": "string"
+                }
+              ]
+            }
+          },
+          "required": [
+            "workspace",
+            "lifecycle_event",
+            "deployment_configurations"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "workspace": {
+              "type": "string"
+            },
+            "lifecycle_event": {
+              "type": "string"
+            },
+            "deployment_configurations": {
+              "type": "array",
+              "items": [
+                {
+                  "type": "string"
+                }
+              ]
+            }
+          },
+          "required": [
+            "workspace",
+            "lifecycle_event",
+            "deployment_configurations"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "workspace": {
+              "type": "string"
+            },
+            "lifecycle_event": {
+              "type": "string"
+            },
+            "deployment_configurations": {
+              "type": "array",
+              "items": [
+                {
+                  "type": "string"
+                }
+              ]
+            }
+          },
+          "required": [
+            "workspace",
+            "lifecycle_event",
+            "deployment_configurations"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "workspace": {
+              "type": "string"
+            },
+            "lifecycle_event": {
+              "type": "string"
+            },
+            "deployment_configurations": {
+              "type": "array",
+              "items": [
+                {
+                  "type": "string"
+                }
+              ]
+            }
+          },
+          "required": [
+            "workspace",
+            "lifecycle_event",
+            "deployment_configurations"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "workspace": {
+              "type": "string"
+            },
+            "lifecycle_event": {
+              "type": "string"
+            },
+            "deployment_configurations": {
+              "type": "array",
+              "items": [
+                {
+                  "type": "string"
+                }
+              ]
+            }
+          },
+          "required": [
+            "workspace",
+            "lifecycle_event",
+            "deployment_configurations"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "workspace": {
+              "type": "string"
+            },
+            "lifecycle_event": {
+              "type": "string"
+            },
+            "deployment_configurations": {
+              "type": "array",
+              "items": [
+                {
+                  "type": "string"
+                }
+              ]
+            }
+          },
+          "required": [
+            "workspace",
+            "lifecycle_event",
+            "deployment_configurations"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "workspace": {
+              "type": "string"
+            },
+            "lifecycle_event": {
+              "type": "string"
+            },
+            "deployment_configurations": {
+              "type": "array",
+              "items": [
+                {
+                  "type": "string"
+                }
+              ]
+            }
+          },
+          "required": [
+            "workspace",
+            "lifecycle_event",
+            "deployment_configurations"
+          ]
+        }
+      ]
+    }
+  },
+  "required": [
+    "namespace",
+    "deployments"
+  ]
+}

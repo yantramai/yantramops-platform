@@ -1,0 +1,44 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "chart_configurations": {
+      "type": "object",
+      "properties": {
+        "yantram_mongodb": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "chart": {
+              "type": "string"
+            },
+            "chart_values": {
+              "type": "string"
+            },
+            "repository": {
+              "type": "string"
+            },
+            "create_namespace": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "name",
+            "chart",
+            "chart_values",
+            "repository",
+            "create_namespace"
+          ]
+        }
+      },
+      "required": [
+        "yantram_mongodb"
+      ]
+    }
+  },
+  "required": [
+    "chart_configurations"
+  ]
+}

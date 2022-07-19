@@ -1,9 +1,11 @@
 kubectl port-forward services/yantram-kube-prometheus-st-prometheus 9090 --namespace=yantram
+kubectl port-forward services/yantram-mongodb 27017 --namespace=yantram
+kubectl port-forward services/yantram-kube-prometheus-stack-grafana 3000:80 --namespace=yantram
 kubectl port-forward services/yantram-loki-stack  3100 --namespace=yantram
 kubectl port-forward services/yantram-prometheus-mongodb-exporter  9216 --namespace=yantram
 kubectl port-forward services/prometheus-postgres-exporter 9187:80 --namespace=yantram
 kubectl port-forward services/yantram-postgresql 5432:80 --namespace=yantram
-kubectl port-forward services/yantram-apachel 7777:80 --namespace=yantram
+kubectl port-forward services/yantram-apache 7777:80 --namespace=yantram
 kubectl port-forward services/yantram-apache-exporter 9117 --namespace=yantram
 
 # kubectl describe servicemonitor prometheus-mongodb-exporter
@@ -14,17 +16,15 @@ kubectl expose deployment web --type=NodePort --port=8080
 kubectl exec --namespace=yantram --stdin --tty yantram-postgresql-postgresql-0 -- /bin/bash
 
 
-yantram-kube-prometheus-stack-grafana
+kubectl port-forward services/prometheus-mongodb-exporter 9216 --namespace=yantram
+
 # kubectl port-forward services/yantram-prometheus-kube-pr-prometheus 9090
 kubectl port-forward services/yantram-kube-prometheus-st-prometheus 9090
 kubectl port-forward services/yantram-postgresql 9090
 kubectl port-forward services/yantram-kube-prometheus-stack-grafana 3000:80
-kubectl port-forward services/prometheus-mongodb-exporter 9216 --namespace=yantram
 kubectl port-forward services/prometheus-postgres-exporter 5555:80
 # kubectl port-forward services/yantram-prometheus-prometheus-node-exporter 9100
-kubectl port-forward services/yantram-kube-prometheus-stack-grafana 3000:80 --namespace=yantram
 kubectl port-forward services/yantram-alertmanagerdemo 9093 --namespace=yantram
-kubectl port-forward services/yantram-mongodb 27017 --namespace=yantram
 kubectl port-forward services/yantram-mongo-express 8081 --namespace=yantram
 
 

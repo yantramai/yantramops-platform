@@ -175,8 +175,8 @@ class Utils:
     def get_data(self, path):
         return os.path.join(_ROOT, '../processor/data', path)
 
-    def print_columns_in_datasource(self, datasource):
-        columns = datasource.columns.unique()
+    def print_columns_in_datasource(self,df):
+        columns = self.df.columns.unique()
         for column in columns:
             print(column)
 

@@ -13,3 +13,4 @@ djangorestframework
 djongo
 django-cors-headers
 prometheus-api-client
+django-jsonforms
