@@ -1,26 +1,15 @@
 # Create your views here.
 import os
-import yaml
 from django.http import HttpResponse, HttpResponseRedirect
-import pandas as pd
 from django.shortcuts import render
-from rest_framework.views import APIView
-from rest_framework.response import Response
-from rest_framework import status
-from apps.core.base.promql_executer import PromqlExecuter
-from apps.core.processor.yantram_executer import YantramExecuter
-from apps.manage.connectors.mongo_db_connection import MongoDBConnection
 from apps.manage.status_code.mongodb.mongodb_status_code_processor import MongoDBStatusCodeProcessor
-from apps.serializers import UserSerializer
+from .core.processor.yantram_processor import YantramProcessor
 from .forms import CustomForm, NameForm
 
-
-# cwd = os.path.dirname(os.path.realpath(__file__))
+cwd = os.path.dirname(os.path.realpath(__file__))
 
 
 def project_index(request):
-    client = MongoDBConnection().get_db_handle(host="localhost",port=27017,username="root",password="12345",db_name="yantram1")
-    mydb = client["yantram1"]
 
     # results = mongo_db_metrics_data()
     # data= {}
@@ -35,21 +24,9 @@ def project_index(request):
 
     # return df2
 
-    # print(json.dumps(result))
-    # df = pandas.read_json(result)
-    deployments = mydb["deployments"]
-    deployments = mydb["helm_chart_values"]
-    deployments = mydb["terraform_configuration"]
-    for x in deployments.find():
-        print(x)
-
-    # projects = Project.objects.all()
-    # return HttpResponse(results)
     context = {"projects": []}
     MongoDBStatusCodeProcessor().process_status_code("dddd")
     return render(request, "project_index.html", context)
-
-
 
 
 # def process_status_code(request):
@@ -59,21 +36,11 @@ def project_index(request):
 #     return render(request, "project_index.html", context)
 #
 
-
-# import view sets from the REST framework
-from rest_framework import viewsets
-
-# import the TodoSerializer from the serializer file
-from .serializers import TodoSerializer
-
-from .models import Project
-
-
-def get_name(request):
+def sync_charts(request):
     # if this is a POST request we need to process the form data
     if request.method == 'POST':
         # create a form instance and populate it with data from the request:
-        form = NameForm(request.POST)
+        form = CustomForm(request.POST)
         # check whether it's valid:
         if form.is_valid():
             # process the data in form.cleaned_data as required
@@ -83,7 +50,9 @@ def get_name(request):
 
     # if a GET (or any other method) we'll create a blank form
     else:
-        form = NameForm()
+        form = CustomForm()
+        print("DDFDDDDD")
+        YantramProcessor().download_charts(deployment_file='deployments.yaml')
 
     return render(request, 'name.html', {'form': form})
 
@@ -107,4 +76,3 @@ def some_view(request):
     return render(request, 'some_html.html', {'form': form})
 
     # return render(request, 'name.html', {'form': CustomForm()})
-

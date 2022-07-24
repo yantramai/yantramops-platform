@@ -9,6 +9,10 @@
 # Various IDEs
 .idea/
 custom_venv/
-/app-box/.terraform/
-/app-box/terraform.tfstate.d/
 /apps/app-box/.terraform/environment
+/apps/app-box/terraform.tfstate.d/
+/apps/app-box/.terraform/
+/apps/app-box/terraform.tfstate
+/status_code_processor.log
+/newfile.log
+/db.sqlite3

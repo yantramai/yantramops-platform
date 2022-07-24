@@ -16,6 +16,7 @@ import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
@@ -24,9 +25,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-c^pdp1g*6e7q51#gjbw=u+ef*wy9!j6e161xe&_orr))il4&5h'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.environ.get("DEBUG", "off") == "on"
 
-ALLOWED_HOSTS = ['192.168.29.26','localhost']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -40,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'django_jsonforms',
+    'stream_django',
     'apps'
 ]
 
@@ -59,7 +61,7 @@ ROOT_URLCONF = 'app_manager.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, '../apps/frontend', 'build')],
+        'DIRS': [os.path.join(BASE_DIR, 'templates', 'build')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -71,32 +73,48 @@ TEMPLATES = [
         },
     },
 ]
-SETTINGS_PATH = os.path.normpath(os.path.dirname(__file__))
-
-TEMPLATE_DIRS = (
-    os.path.join(SETTINGS_PATH, 'templates'),
-)
 WSGI_APPLICATION = 'app_manager.wsgi.application'
 
 
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
-# import mongoengine
-#
+# DATABASES = {
+#        'default': {
+#            'HOST': 'localhost',
+#            'ENGINE': 'djongo',
+#            'NAME': 'yantram1',
+#            'USERNAME': 'root',
+#            'PASSWORD': '12345',
+#        }
+#    }
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
+import mongoengine
+
+import mongoengine
+mongoengine.connect(db='yantram1', host='localhost', username='root', password='12345')
 # DATABASES = {
 #        'default': {
 #            'ENGINE': 'djongo',
 #            'NAME': 'yantram1',
+#            'USERNAME': 'root',
+#            'PASSWORD': '12345',
 #        }
 #    }
-#
+# DATABASES = {
+#        'default': {
+#           # 'ENGINE': 'django.db.backends.',
+#            'ENGINE': 'djongo',
+#            'NAME': 'yantram1',
+#        }
+#    }
+
 #
 # DOMAIN = 'localhost'
 # PORT = 27017
@@ -134,6 +152,8 @@ USE_I18N = True
 
 USE_TZ = True
 
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
@@ -175,3 +195,11 @@ SETTINGS_PATH = os.path.normpath(os.path.dirname(__file__))
 TEMPLATE_DIRS = (
     os.path.join(SETTINGS_PATH, 'templates'),
 )
+# Instantiate a new client
+STREAM_API_KEY = 'ypt2jgfmxcnc'
+STREAM_API_SECRET = 'cr69uwhez8n6b6z9tbybh5am22vzye828a8vwm6uhueac7a56swm7zhmnawtp34v'
+# import stream
+# client = stream.connect('ypt2jgfmxcnc', 'cr69uwhez8n6b6z9tbybh5am22vzye828a8vwm6uhueac7a56swm7zhmnawtp34v', location='us-east')
+# Find your API keys here https://getstream.io/dashboard/
+
+

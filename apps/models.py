@@ -1,9 +1,6 @@
 from django.db import models
 
 from django.db import models
-from django_jsonform.models.fields import JSONField
-from django_jsonforms.forms import JSONSchemaField
-
 
 class Project(models.Model):
     title = models.CharField(max_length=100)
@@ -11,6 +8,23 @@ class Project(models.Model):
     technology = models.CharField(max_length=20)
     image = models.FilePathField(path="/img")
 
+from stream_django import activity
+
+
+class Tweet(activity.Activity, models.Model):
+    user = models.ForeignKey('auth.User', on_delete=models.CASCADE)
+    text = models.CharField(max_length=160)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+
+
+class Follow(models.Model):
+    user = models.ForeignKey('auth.User', related_name='friends', on_delete=models.CASCADE)
+    target = models.ForeignKey('auth.User', related_name='followers', on_delete=models.CASCADE)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        unique_together = ('user', 'target')
 
 class ShoppingList(models.Model):
     ITEMS_SCHEMA = {
@@ -38,5 +52,5 @@ class ShoppingList(models.Model):
         }
     }
 
-    items = JSONField(schema=ITEMS_SCHEMA1)
+    # items = JSONField(schema=ITEMS_SCHEMA1)
     date_created = models.DateTimeField(auto_now_add=True)

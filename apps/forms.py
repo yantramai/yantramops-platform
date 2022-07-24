@@ -56,5 +56,6 @@ class CustomForm(forms.Form):
         }
 
     options = {"no_additional_properties": True}
-    first_name = JSONSchemaField(schema = Person_schema, options = options)
-    last_name = JSONSchemaField(schema = last_name_schema, options = options)
+    # first_name = JSONSchemaField(schema = Person_schema, options = options)
+    # last_name = JSONSchemaField(schema = last_name_schema, options = options)
+    person = JSONSchemaField(schema = Person_schema, options = options)

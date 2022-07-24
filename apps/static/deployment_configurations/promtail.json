@@ -1,0 +1,15 @@
+{
+  "namespace": "yantram",
+  "chart_configurations": {
+    "loki-stack": {
+      "name": "promtail",
+      "chart": "promtail",
+      "chart_values": "inputs/helm_chart_values/app/yantram-promtail.yaml",
+      "repository": "https://grafana.github.io/helm-charts",
+      "create_namespace": false
+    }
+  }
+}
+
+
+
