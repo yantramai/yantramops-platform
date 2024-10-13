@@ -1,4 +1,4 @@
-# Copyright: (c) 2020, Jayant Kaushal <jayant@yantram.cloud>
+# Copyright: (c) 2020, rashmi Kaushal <rashmi@yantram.cloud>
 # GNU General Public License v3.0+ (see COPYING or https://www.gnu.org/licenses/gpl-3.0.txt)
 import json, os
 from abc import ABC

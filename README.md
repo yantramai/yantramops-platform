@@ -134,4 +134,4 @@ TBD.
 ### Who do I talk to? ###
 
 * Repo owner or admin
-* jayant@yantram.cloud
+* rashmi@yantram.cloud

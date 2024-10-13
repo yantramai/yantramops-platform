@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# author: Jayant Kaushal
+# author: rashmi Kaushal
 # site: http://yantram.cloud
 # purpose: Basic kubectl introduction
 

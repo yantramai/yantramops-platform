@@ -1,7 +1,7 @@
 #!/bin/bash
 #
 echo $1
-# author: Jayant Kaushal
+# author: rashmi Kaushal
 # site: http://yantram.cloud
 # purpose: Basic kubectl introduction
 
